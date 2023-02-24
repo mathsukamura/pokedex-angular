@@ -1,26 +1,26 @@
 <body>
   <main>
 
-    <img src="https://raw.githubusercontent.com/pokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/25.gif" alt="pokemon" class="pokemonImage">
+    <img src="https://raw.githubusercontent.com/pokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/25.gif" alt="pokemon" class="pokemonImage" [src]="pokemonImage" *ngIf="pokemonImage"/>
     <img src="assets/img/pokedexblue.png" alt="pokedex" class="pokedex">
 
     <h1 class="pokemonData">
-      <span class="pokemonNumber">25</span>-
-      <span class="pokemonName">pikachu</span>
+      <span class="pokemonNumber">{{ pokemonNumber }}</span>-
+      <span class="pokemonName">{{ pokemonName }}</span>
     </h1>
 
-    <form class="form">
+    <form class="form" (submit)="onFormSubmit($event)">
       <input
-      type="search"
+      type="text"
       class="inputSearch"
       placeholder="Name or number"
-      required
-      >
+      [(ngModel)]="input"
+      />
     </form>
 
     <div class="buttons">
-      <button class="button bntPrevious">&lt; prev</button>
-      <button class="button bntNext">next &gt;</button>
+      <button class="button bntPrevious" (click)="onButtonPrevClick()">&lt; prev</button>
+      <button class="button bntNext" (click)="onButtonNextClick()">next &gt;</button>
     </div>
   </main>
 </body>
